@@ -5,16 +5,17 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.2</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>2.5.9</version>
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.application</groupId>
-	<artifactId>ELearningManagement</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>ELearningManagement</name>
-	<description>eLearning Management System using Angular 8 &amp; Springboot</description>
+	<groupId>tn.esprit.rh</groupId>
+	<artifactId>achat</artifactId>
+	<version>1.0</version>
+	<name>achat</name>
+	<description>Projet pour le module DevOps</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
+		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -56,35 +57,43 @@
 			<artifactId>javax.mail</artifactId>
 			<version>1.6.2</version>
 		</dependency>
-		
-	</dependencies>
 
-	
+	</dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>2.4.1</version><!--$NO-MVN-MAN-VER$-->
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
+
 			<plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.1</version>
-            <configuration>
-                <source>11</source>
-                <target>11</target>
-            </configuration>
-        </plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-resources-plugin</artifactId>
+			  <version>3.1.0</version><!--$NO-MVN-MAN-VER$-->
+		    </plugin>
+		    
+		  
+
+
 		</plugins>
 	</build>
-
-	<distributionManagement>
+	
+       <distributionManagement>
         <repository>
          <id>deploymentRepo</id>
          <name>admin</name>
         <url>http://192.168.33.10:8081/repository/maven-releases/</url>
        </repository>
       </distributionManagement>
-
+      
 </project>
